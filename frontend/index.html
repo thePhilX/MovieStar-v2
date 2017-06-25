@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8" />
+  <title>MovieStar</title>
+  <!-- inject:css -->
+  <!-- endinject -->
+</head>
+<body ng-app="MovieStar">
+<div class="container">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed" aria-expanded="false">
+          <span class="sr-only"></span>
+
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="navbar-brand" href="#"><img class="img-responsive" src="images/movieIcon.png"></a>
+      </div>
+      <div class="collapse navbar-collapse" ng-controller="HeaderController" ng-class="{collapse: isCollapsed}">
+        <ul class="nav navbar-nav">
+          <li ng-class="{ active: isActive('/')}"><a href="#">Home</a></li>
+          <li ng-class="{ active: isActive('/register')}"><a href="#/register">sign up</a></li>
+          <li ng-class="{ active: isActive('/movies')}"><a href="#/movies">Movies</a></li>
+          <li ng-class="{ active: isActive('/about')}"><a href="#/about">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div ng-view></div>
+
+  <!-- inject:js -->
+  <!-- endinject -->
+</body>
+</html>

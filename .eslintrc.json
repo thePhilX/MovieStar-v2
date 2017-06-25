@@ -1,0 +1,24 @@
+{
+  "extends":"airbnb-base/legacy",
+
+  "plugins":[
+    "import"
+  ],
+
+  "globals": {
+    "angular": 1
+  },
+
+  "rules":{
+    "linebreak-style":["error",
+      "windows"
+    ],
+    "func-names":"off",
+    "comma-dangle":["error",
+      "always-multiline"
+    ],
+    "vars-on-top": "off",
+    "no-unused-vars":"off",
+    "no-param-reassign":"off"
+  }
+}

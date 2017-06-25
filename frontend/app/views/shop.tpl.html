@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row search-row">
+        <input class="form-control" id="search-article" placeholder="Search for anything..." ng-model="searchFilter" type="text" />
+    </div>
+    <div id="products" class="row list-group">
+        <div ng-repeat="movie in movies | filter: searchFilter" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-card">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="http://via.placeholder.com/350x250" alt="" ng-click="redirectToMovieDetail()"/>
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        {{movie.name}}
+                    </h4>
+                    <p class="group inner list-group-item-text">
+                        {{movie.genre}}
+                    </p>
+                    <div class="row">
+                        <div>
+                            <p><strong>{{movie.price | currency : "&euro;"}}</strong></p>
+                            <button class="btn btn-success btn-cart-mobile" type="button" ng-click="addToCart(movie)"><span class="glyphicon glyphicon-shopping-cart"></span> Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

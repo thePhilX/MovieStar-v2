@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row" ng-repeat="movie in cart.cart">
+        <!-- title & price -->
+        <div class="cart-article" style="display: inline-block">
+            <div class="movie-title">{{movie.title}}</div>
+            <div class="movie-price">{{movie.price}}</div>
+        </div>
+        <!-- delete/remove button -->
+        <div class="cart-remove">
+            <button class="btn btn-danger" type="button" ng-click="removeMovie(movie)">Remove</button>
+        </div>
+    </div>
+    <!-- switch between "only in cart" and "ordered"-->
+    <button class="btn btn-success" type="button" ng-click="postBill()" ng-if="!cart.ordered">Order</button>
+    <div ng-if="cart.ordered">You can see your recent orders in your profile page...</div>
+</div>
