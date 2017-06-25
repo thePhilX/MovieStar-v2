@@ -1,5 +1,8 @@
 {
   "name": "moviestar",
+  "description": "Moviestar 2017",
+  "repository" : "https://github.com/thePhilX/MovieStar-v2/",
+  "license" : "MIT",
   "main": "server.js",
   "dependencies": {
     "angular": "^1.6.4",
