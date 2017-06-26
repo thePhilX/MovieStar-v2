@@ -2,6 +2,7 @@
   "Movies": [
     {
       "title": "Starwars IV",
+      "description": "Starwars is soo cool!",
       "year": "1977",
       "director": "George Lucas",
       "genre": "SciFi",
@@ -11,6 +12,7 @@
     },
     {
       "title": "Starwars V",
+      "description": "Starwars is soo cool!",
       "year": "1980",
       "director": "George Lucas",
       "genre": "SciFi",
@@ -20,6 +22,7 @@
     },
     {
       "title": "Starwars VI",
+      "description": "Starwars is soo cool!",
       "year": "1983",
       "director": "George Lucas",
       "genre": "SciFi",
@@ -29,6 +32,7 @@
     },
     {
       "title": "Starwars I",
+      "description": "Starwars is soo cool!",
       "year": "1999",
       "director": "George Lucas",
       "genre": "SciFi",
@@ -38,6 +42,7 @@
     },
     {
       "title": "Starwars II",
+      "description": "Starwars is soo cool!",
       "year": "2002",
       "director": "George Lucas",
       "genre": "SciFi",
@@ -47,6 +52,7 @@
     },
     {
       "title": "Starwars III",
+      "description": "Starwars is soo cool!",
       "year": "2005",
       "director": "George Lucas",
       "genre": "SciFi",

@@ -26,6 +26,7 @@ API.getMovie = function(req, res) {
 API.postMovie = function(req, res) {
     var newMovie = new Movie({
         title: req.body.title,
+        description: req.body.description,
         year: req.body.year,
         director: req.body.director,
         genre: req.body.genre,
@@ -50,6 +51,7 @@ API.updateMovie = function(req, res) {
         }
         var updatedMovie = movie;
         if (req.body.title) updatedMovie.title = req.body.title;
+        if (req.body.description) updatedMovie.description = req.body.description;
         if (req.body.year) updatedMovie.year = req.body.year;
         if (req.body.director) updatedMovie.director = req.body.director;
         if (req.body.genre) updatedMovie.genre = req.body.genre;
