@@ -78,7 +78,6 @@ API.getUser = function(req, res) {
 };
 
 // post new user
-
 API.postUser = function(req, res) {
   console.log(req.body);
     var newUser = new User({

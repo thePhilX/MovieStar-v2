@@ -20,21 +20,31 @@ function HeaderController($scope, $location) {
 
 function LoginCtrl($scope, $http) {
   $scope.login = function (username, password) {
-    alert('Try to login');
+    $http.post('/api/auth', { email: username, password: password })
+      .then(
+        function (res) {
+          console.log(res);
+          var token = res.data.token;
+        },
+        function (res) {
+          console.log(res);
+        }
+      );
   };
-  $http.post('/api/auth', { email: 'test@test.de', password: 'test' })
+}
+
+function ShopCtrl($scope, $http) {
+  $http.get('/api/movies')
     .then(
       function (res) {
-        console.log(res);
-        var token = res.data.token;
-        location.path('movies')
+        console.log(res.data);
+        $scope.movies = res.data;
       },
       function (res) {
         console.log(res);
       }
     );
 }
-
 
 var MovieStar = angular.module('MovieStar', [
   'MovieStar.templates',
@@ -53,12 +63,17 @@ MovieStar
           templateUrl: 'app/views/register.tpl.html',
         })
         .when('/movies', {
+          controller: 'MoviesCtrl',
+          templateUrl: 'app/views/shop.tpl.html',
+        })
+        .when('/cart', {
           templateUrl: 'app/views/cart.tpl.html',
         })
         .when('/about', { template: 'Über unsere Pizzeria' })
         .otherwise({ redirectTo: '/' });
   })
   .controller('LoginCtrl', LoginCtrl)
+  .controller('MoviesCtrl', ShopCtrl)
   .controller('TestCtrl', TestCtrl)
   .controller('HeaderController', HeaderController)
   .controller('TestCtrl2', TestCtrl2);
