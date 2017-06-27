@@ -1,6 +1,6 @@
 const express = require('express');
 const bookingRoutesApi = express();
-const bookingAPI = require('../modules/billAPI');
+const bookingAPI = require('../modules/bookingAPI');
 
 bookingRoutesApi.route('/bookings')
     .get(bookingAPI.getAllBookings)
