@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="row">
+    <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#deleteMovieModal">
+        Delete
+    </button>
+    <div id="deleteMovieModal" class="modal fade">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Delete Movie</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group float-label-control">
+                            <label for="">Click the button to delete the movie.</label>
+                            <label for="">Care, this can't be revoked.</label>
+                        </div>
+                        <div class="btn-group btn-group-justified">
+                            <div class="btn-group"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
+                            <div class="btn-group"><button type="button" class="btn btn-danger" ng-click="deleteMovie()">Delete</button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+	</div>
+</div>
