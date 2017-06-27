@@ -24,9 +24,9 @@
       <div class="collapse navbar-collapse" ng-controller="HeaderController" ng-class="{collapse: isCollapsed}">
         <ul class="nav navbar-nav">
           <li ng-class="{ active: isActive('/')}"><a href="#">Home</a></li>
-          <li ng-class="{ active: isActive('/register')}"><a href="#/register">sign up</a></li>
-          <li ng-class="{ active: isActive('/movies')}"><a href="#/movies">Movies</a></li>
-          <li ng-class="{ active: isActive('/user')}"><a href="#/user">User</a></li>
+          <li ng-class="{ active: isActive('/register')}" ng-show="!isAuth"><a href="#/register">sign up</a></li>
+          <li ng-class="{ active: isActive('/movies')}" ng-show="isAuth"><a href="#/movies">Movies</a></li>
+          <li ng-class="{ active: isActive('/user')}" ng-show="isAuth"><a href="#/user">User</a></li>
 
         </ul>
       </div>

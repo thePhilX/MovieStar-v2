@@ -1,6 +1,6 @@
 <div class="container">
     <div class="col-lg-8 col-md-6 "></div>
-    <div class="col-lg-4 col-md-6 well">
+    <div class="col-lg-4 col-md-6 well" ng-show="!isAuth">
         <div class="alert alert-info">
             Username: test@test.de<br/>
             Password: test
@@ -29,5 +29,11 @@
                 <button type="submit" ng-disabled="vm.loading" class="btn btn-primary">Login</button>
             </div>
         </form>
+    </div>
+    <div class="col-lg-4 col-md-6 well" ng-show="isAuth">
+        <h2>
+            Hello!
+        </h2>
+        <button type="button" class="btn btn-primary" ng-click="logout()">Logout</button>
     </div>
 </div>

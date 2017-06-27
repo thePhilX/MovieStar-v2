@@ -22,6 +22,10 @@ var newToken = function(user) {
     return jwt.encode(user, config.secret);
 };
 
+var getUser = function(headers) {
+    return jwt.decode(getToken(headers), config.secret);
+};
+
 // 1. check header for token // 2. check for existing user
 var authUser = function(req, res, callback) {
     passport.authenticate('jwt', {
@@ -64,7 +68,8 @@ var authUser = function(req, res, callback) {
 var Authenticate = {
     authUser: authUser,
     getToken: getToken,
-    newToken: newToken
+    newToken: newToken,
+    getUser: getUser
 };
 
 module.exports = Authenticate;

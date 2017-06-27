@@ -1,6 +1,6 @@
  // get the movie model
 const Movie = require('../models/Movie');
-
+const Authenticate = require('./authenticate');
 var API = {};
 
 API.getAllMovies = function(req, res) {
