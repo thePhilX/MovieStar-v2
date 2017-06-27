@@ -10,6 +10,7 @@ var UserSchema = new Schema({
   email: { type: String, required: true, unique: true},
   firstName: String,
   surName: String,
+  isAdmin: {type: Boolean, default: false},
   collection: {type: [{ type: ObjectId, ref: 'Movie'}]}
 });
 
