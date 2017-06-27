@@ -1,17 +1,5 @@
 'use strict';
 
-function TestCtrl($templateCache) {
-  this.user = { name: 'Blake' };
-
-  console.log($templateCache.get('app/views/register.tpl.html'));
-}
-
-function TestCtrl2($templateCache) {
-  this.user = { name: 'Blake' };
-
-  console.log($templateCache.get('app/views/register.tpl.html'));
-}
-
 function HeaderController($scope, $location) {
   $scope.isActive = function (viewLocation) {
     return viewLocation === $location.path();
@@ -46,6 +34,19 @@ function ShopCtrl($scope, $http) {
     );
 }
 
+function UserCtrl($scope, $http) {
+  $http.get('/api/user')
+    .then(
+      function (res) {
+        console.log(res.data);
+        $scope.user = res.data;
+      },
+      function (res) {
+        console.log(res);
+      }
+    );
+}
+
 var MovieStar = angular.module('MovieStar', [
   'MovieStar.templates',
   'ngRoute']);
@@ -66,14 +67,16 @@ MovieStar
           controller: 'MoviesCtrl',
           templateUrl: 'app/views/shop.tpl.html',
         })
+        .when('/user', {
+          controller: 'UserCtrl',
+          templateUrl: 'app/views/profile.tpl.html',
+        })
         .when('/cart', {
           templateUrl: 'app/views/cart.tpl.html',
         })
-        .when('/about', { template: 'Über unsere Pizzeria' })
         .otherwise({ redirectTo: '/' });
   })
   .controller('LoginCtrl', LoginCtrl)
+  .controller('UserCtrl', UserCtrl)
   .controller('MoviesCtrl', ShopCtrl)
-  .controller('TestCtrl', TestCtrl)
-  .controller('HeaderController', HeaderController)
-  .controller('TestCtrl2', TestCtrl2);
+  .controller('HeaderController', HeaderController);
