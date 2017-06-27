@@ -1,5 +1,6 @@
 const express = require('express');
 const movieRoutesApi = express.Router();
+
 const movieAPI = require('../modules/movieAPI');
 
 movieRoutesApi.route('/movies')

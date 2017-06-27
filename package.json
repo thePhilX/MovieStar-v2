@@ -1,8 +1,8 @@
 {
   "name": "moviestar",
   "description": "Moviestar 2017",
-  "repository" : "https://github.com/thePhilX/MovieStar-v2/",
-  "license" : "MIT",
+  "repository": "https://github.com/thePhilX/MovieStar-v2/",
+  "license": "MIT",
   "main": "server.js",
   "dependencies": {
     "angular": "^1.6.4",
@@ -30,6 +30,7 @@
     "eslint-plugin-import": "^2.3.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-angular-templatecache": "^2.0.0",
+    "gulp-cli": "^1.3.0",
     "gulp-cssmin": "^0.2.0",
     "gulp-eslint": "^3.0.1",
     "gulp-htmlhint": "^0.3.1",
@@ -44,5 +45,9 @@
     "gulp-watch": "^4.3.11",
     "path": "^0.12.7",
     "rename": "^1.0.4"
+  },
+  "scripts": {
+    "preinstall": "",
+    "start": "node ./node_modules/gulp/bin/gulp.js; node build/backend/server.js"
   }
 }
