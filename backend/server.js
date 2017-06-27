@@ -37,7 +37,7 @@ mongoose.connect(config.database);
 
 // pass passport for configuration
 require('./config/passport')(passport);
-
+/*
 // bundle our routes
 var apiRoutes = express.Router();
 
@@ -117,15 +117,15 @@ getToken = function (headers) {
   } else {
     return null;
   }
-};
+};*/
 
 // api calls
-// app.use('/api', require('./routes/userRouter'));
+app.use('/api', require('./routes/userRouter'));
 app.use('/api', require('./routes/movieRouter'));
 
 // connect the api routes under /api/*
 app.use('/', index);
-app.use('/api', apiRoutes);
+//app.use('/api', apiRoutes);
 
 // Start the server
 app.listen(port);

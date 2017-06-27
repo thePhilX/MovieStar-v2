@@ -1,5 +1,5 @@
 const express = require('express');
-const userRoutesApi = express.Router();
+const userRoutesApi = express();
 const userAPI = require('../modules/userAPI');
 
 userRoutesApi.route('/users')
@@ -12,6 +12,6 @@ userRoutesApi.route('/users/:id')
     .delete(userAPI.removeUser);
 
 userRoutesApi.route('/auth')
-    .post(userAPI.authenticate());
+    .post(userAPI.authenticate);
 
 module.exports = userRoutesApi;

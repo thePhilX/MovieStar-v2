@@ -48,6 +48,6 @@
   },
   "scripts": {
     "preinstall": "",
-    "start": "node ./node_modules/gulp/bin/gulp.js; node build/backend/server.js"
+    "start": "node ./node_modules/gulp/bin/gulp.js; nodemon build/backend/server.js"
   }
 }

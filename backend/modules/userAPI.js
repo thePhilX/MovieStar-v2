@@ -1,5 +1,5 @@
 const Authenticate = require('./authenticate');
-const User = require('../models/user');
+const User = require('../models/User');
 
 var API = {};
 
@@ -17,7 +17,7 @@ API.authenticate = function(req, res) {
         }
 
         if (!user) {
-            return res.status(404).send({
+            return res.status(400).send({
                 success: false,
                 msg: 'Authentication failed. User not found.'
             });
@@ -34,7 +34,7 @@ API.authenticate = function(req, res) {
                     token: 'JWT ' + token
                 });
             }
-            return res.status(404).send({
+            return res.status(400).send({
                 success: false,
                 msg: 'Authentication failed. Wrong password.'
             });
@@ -80,6 +80,7 @@ API.getUser = function(req, res) {
 // post new user
 
 API.postUser = function(req, res) {
+  console.log(req.body);
     var newUser = new User({
         password: req.body.password,
         email: req.body.email,

@@ -2,7 +2,7 @@
 const passport = require('passport');
 const jwt = require('jwt-simple');
 const config = require('../config/database');
-const User = require('../models/user');
+const User = require('../models/User');
 
 // get Token from Header and return it, if found (else return 0)
 var getToken = function(headers) {

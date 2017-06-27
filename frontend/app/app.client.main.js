@@ -18,17 +18,34 @@ function HeaderController($scope, $location) {
   };
 }
 
+function LoginCtrl($scope, $http) {
+  $scope.login = function (username, password) {
+    alert('Try to login');
+  };
+  $http.post('/api/auth', { email: 'test@test.de', password: 'test' })
+    .then(
+      function (res) {
+        console.log(res);
+        var token = res.data.token;
+        location.path('movies')
+      },
+      function (res) {
+        console.log(res);
+      }
+    );
+}
+
 
 var MovieStar = angular.module('MovieStar', [
   'MovieStar.templates',
-  'ngRoute',
-]);
+  'ngRoute']);
 
 MovieStar
   .config(function ($routeProvider, $locationProvider) {
     $locationProvider.hashPrefix('');
     $routeProvider
         .when('/', {
+          controller: 'LoginCtrl',
           templateUrl: 'app/views/login.tpl.html',
         })
         .when('/register', {
@@ -41,7 +58,7 @@ MovieStar
         .when('/about', { template: 'Über unsere Pizzeria' })
         .otherwise({ redirectTo: '/' });
   })
+  .controller('LoginCtrl', LoginCtrl)
   .controller('TestCtrl', TestCtrl)
   .controller('HeaderController', HeaderController)
   .controller('TestCtrl2', TestCtrl2);
-
