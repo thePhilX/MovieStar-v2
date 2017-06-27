@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="col-lg-6 col-sm-6">
+      <div class="row">
+          <button class="btn btn-warning" ng-click="redirectToShop()"><span class="glyphicon glyphicon-arrow-left"></span> Back to Shop</button>
+          <h2 class="text-center">{{movie.title}}</h2>
+      </div>
+      <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+          <div class="btn-group" role="group">
+              <button type="button" id="overview" class="btn btn-primary" href="#overviewTab" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                  <div class="hidden-xs">Overview</div>
+              </button>
+          </div>
+          <div class="btn-group" role="group">
+              <button type="button" id="description" class="btn btn-default" href="#descriptionTab" data-toggle="tab"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+                  <div class="hidden-xs">Description</div>
+              </button>
+          </div>
+          <div class="btn-group" role="group">
+              <button type="button" id="details" class="btn btn-default" href="#detailsTab" data-toggle="tab"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                  <div class="hidden-xs">Details</div>
+              </button>
+          </div>
+      </div>
+
+      <div class="well">
+        <div class="tab-content">
+          <div class="tab-pane fade in active" id="overviewTab">
+            <h3>Overview </h3>
+            <div class="form-group">
+              <div><b>{{movie.title}}</b></div>
+              <img alt="" src="https://dummyimage.com/250x200/591909/000000&text=Movie">
+            </div>
+            <button class="btn btn-success" ng-click="buyMovie()"><span class="glyphicon glyphicon-shopping-cart"></span> {{movie.price}} Buy Movie !</button>
+          </div>
+          <div class="tab-pane fade in" id="descriptionTab">
+            <h3>Description</h3>
+            <div class="form-group">
+                <div>{{movie.description}}</div>
+                <div>
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                  sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                  At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                </div>
+            </div>
+            <button class="btn btn-success" ng-click="buyMovie()"><span class="glyphicon glyphicon-shopping-cart"></span> {{movie.price}} Buy Movie !</button>
+          </div>
+          <div class="tab-pane fade in" id="detailsTab">
+            <h3>Details</h3>
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <strong>{{movie.title}}</strong>
+              </div>
+              <div class="panel-body">
+                <p>Genre: {{movie.genre}}</p>
+                <p>Duration: {{movie.duration}}</p>
+                <p>Regisseur: {{movie.regisseur}}</p>
+                <p>{{movie.year}}</p>
+              </div>
+            </div>
+            <button class="btn btn-success" ng-click="buyMovie()"><span class="glyphicon glyphicon-shopping-cart"></span> {{movie.price}} Buy Movie !</button>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
  // get the movie model
-const Movie = require('../models/Movie');
+const Movie = require('../models/movie');
 
 var API = {};
 

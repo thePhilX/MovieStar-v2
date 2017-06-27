@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt');
 
+var Movie = require('./Movie');
 
 // set up a mongoose model
 var UserSchema = new Schema({
