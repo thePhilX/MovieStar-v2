@@ -9,7 +9,8 @@ var UserSchema = new Schema({
   password: { type: String, required: true },
   email: { type: String, required: true, unique: true},
   firstName: String,
-  surName: String
+  surName: String,
+  collection: {type: [{ type: ObjectId, ref: 'Movie'}]}
 });
 
 UserSchema.pre('save', function (next) {
