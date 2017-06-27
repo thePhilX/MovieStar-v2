@@ -7,7 +7,7 @@ var ObjectId = Schema.ObjectId;
 var Movie = require('./Movie');
 
 var BookingSchema = new Schema({
-    user: { type: ObjectId, ref: 'User', required: true },
+    userID: { type: ObjectId, ref: 'User', required: true },
     movies: {
       type: [{
         movies: {
@@ -17,8 +17,8 @@ var BookingSchema = new Schema({
       }],
       required: true
     },
-    price: { type: Number, required: true },
-    timestamps: { createdAt: 'created_at' }
+    totalPrice: { type: Number, required: true },
+    timestamp: { type: Date, default: Date.now() }
 });
 
 module.exports = mongoose.model('Booking', BookingSchema);

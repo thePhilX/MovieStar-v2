@@ -41,6 +41,7 @@ require('./config/passport')(passport);
 // api calls
 app.use('/api', require('./routes/userRouter'));
 app.use('/api', require('./routes/movieRouter'));
+app.use('/api', require('./routes/bookingRouter'));
 
 // connect the api routes under /api/*
 app.use('/', index);
