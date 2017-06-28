@@ -1,0 +1,59 @@
+img {
+  max-height: 100%;
+  max-width: 100%;
+}
+.thumbnail{
+  max-height: 100%;
+  max-width: 100%;
+}
+.products .btn-default {
+  background: transparent none repeat scroll 0 0;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  text-shadow: 0 1px 0 #fff;
+}
+
+.btn-default:focus, .btn-default:hover {
+  background-color: #f7ebd4;
+  background-position: 0 -15px;
+}
+
+.cuadro_intro_hover{
+  	padding: 0px;
+	position: relative;
+	overflow: hidden;
+	height: 200px;
+}
+.cuadro_intro_hover:hover .caption{
+	opacity: 1;
+	transform: translateY(-70px);
+	-webkit-transform:translateY(-70px);
+	-moz-transform:translateY(-70px);
+	-ms-transform:translateY(-70px);
+	-o-transform:translateY(-70px);
+}
+.cuadro_intro_hover .caption{
+	position: absolute;
+	top:150px;
+	-webkit-transition:all 0.3s ease-in-out;
+	-moz-transition:all 0.3s ease-in-out;
+	-o-transition:all 0.3s ease-in-out;
+	-ms-transition:all 0.3s ease-in-out;
+	transition:all 0.3s ease-in-out;
+	width: 100%;
+}
+.cuadro_intro_hover .blur{
+	background-color: rgba(0,0,0,0.7);
+	height: 150px;
+	z-index: 5;
+	position: absolute;
+	width: 100%;
+}
+.cuadro_intro_hover .caption-text{
+	z-index: 10;
+	color: #fff;
+	position:absolute;
+	text-align: center;
+	top:-20px;
+	width: 100%;
+}
