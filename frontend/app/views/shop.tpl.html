@@ -2,7 +2,8 @@
     <div class="row search-row col-lg-4 col-md-6 col-sm-8 col-xs-12">
         <div>
           <input class="form-control" id="search-article" placeholder="Search for anything..." ng-model="searchFilter" type="text" />
-          <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#addMovieModal">
+        </div><div class="col-md-3">
+          <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#addMovieModal" style=" padding: 7px 12px; font-size: 14px;">
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><span class="hidden-sm"> Add Movie</span>
           </button>
         </div>
@@ -19,8 +20,8 @@
                                 <input type="text" class="form-control" placeholder="Title" ng-model="movie.title" required>
                             </div>
                             <div class="form-group float-label-control">
-                                <label for="">Regisseur</label>
-                                <input type="text" class="form-control" placeholder="Regisseur" ng-model="movie.regisseur" required>
+                                <label for="">Director</label>
+                                <input type="text" class="form-control" placeholder="Director" ng-model="movie.director" required>
                             </div>
                             <div class="form-group float-label-control">
                                 <label for="">Year</label>
@@ -52,7 +53,7 @@
     <hr>
     <div id="products" class="row list-group">
       <!--<div class="row">-->
-        <div ng-repeat="movie in movies | filter: searchFilter" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-card">
+        <div ng-repeat="movie in movies | filter: searchFilter" class="col-md-6 col-lg-3 product-card">
                 <div class="thumbnail">
                       <div class="cuadro_intro_hover " style="background-color:#cccccc;">
                           <img src="http://via.placeholder.com/350x250" class="group list-group-image" alt="">
@@ -92,8 +93,8 @@
                                   <div class="modal-body">
                                       <form role="form">
                                           <div class="form-group float-label-control">
-                                              <label for="">Regisseur</label>
-                                              <input type="text" class="form-control" placeholder="{{movie.regisseur}}" ng-model="newMovie.regisseur" required>
+                                              <label for="">Director</label>
+                                              <input type="text" class="form-control" placeholder="{{movie.director}}" ng-model="newMovie.director" required>
                                           </div>
                                           <div class="form-group float-label-control">
                                               <label for="">Year</label>
