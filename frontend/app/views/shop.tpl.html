@@ -43,7 +43,7 @@
                             <p class="group inner list-group-item-text">
                               <strong>{{movie.price | currency : "&euro;"}}</strong>
                             </p>
-                            <button class="btn btn-success btn-cart-mobile" type="button" ng-click="addToCart(movie)"><span class="glyphicon glyphicon-shopping-cart"></span> Add to cart</button>
+                            <button class="btn btn-success btn-cart-mobile" type="button" ng-click="addToCart(movie._id)"><span class="glyphicon glyphicon-shopping-cart"></span> Add to cart</button>
                         </div>
                     </div>
                     <div id="editMovieModal" class="modal fade">

@@ -4,7 +4,7 @@ const cartAPI = require('../modules/cartAPI');
 
 cartRoutesApi.route('/cart')
     .get(cartAPI.getAllCarts)
-    .post(cartAPI.postCart);
+    .post(cartAPI.postCart); 
 
 cartRoutesApi.route('/cart/:id')
     .get(cartAPI.getCart)

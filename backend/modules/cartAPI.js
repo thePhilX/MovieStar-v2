@@ -12,7 +12,7 @@ API.getAllCarts = function(req, res) {
                 if (err) {
                     return res.status(400).send(err);
                 }
-                return res.status(200).send(carts);
+                return res.status(200).send({carts: carts, userid: user._id});
             });
         }
     });
@@ -31,14 +31,16 @@ API.getCart = function(req, res) {
 
 // used if user haven't had anything in the cart before
 API.postCart = function(req, res) {
+    console.log(req.body);
     var newCart = new Cart({
         userID: req.body.userID,
         movies: req.body.movies,
         totalPrice: req.body.totalPrice
     });
+    console.log(newCart);
     newCart.save(function(err, saveRes) {
         if (err) {
-            return res.status(500).send(err);
+            return res.status(400).send(err);
         }
         return res.status(200).send(saveRes);
     });
@@ -59,7 +61,7 @@ API.updateCart = function(req, res) {
 
         return updatedCart.save(function(saveErr, saveRes) {
             if (saveErr) {
-                return res.status(500).send(saveErr);
+                return res.status(400).send(saveErr);
             }
             return res.status(200).send(saveRes);
         });

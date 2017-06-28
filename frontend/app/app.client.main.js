@@ -34,7 +34,11 @@ function UserCtrl($scope, $http) {
   };
 }
 
-function MovieDetailCtrl($scope, $http, $routeParams, $location) {
+function CartCtrl($scope, $http, $routeParams, $location, cartService) {
+  // $http.get('/api/carts');
+}
+
+function MovieDetailCtrl($scope, $http, $routeParams, $location, cartService) {
   $http.get('/api/movies/' + $routeParams.movieID)
     .then(
       function (res) {
@@ -46,6 +50,10 @@ function MovieDetailCtrl($scope, $http, $routeParams, $location) {
     );
   $scope.redirectToShop = function () {
     $location.path('/movies/');
+  };
+  $scope.buy = function (id) {
+    console.log('Buy ' + id);
+    cartService.addToCart(id);
   };
 }
 var MovieStar = angular.module('MovieStar', [
@@ -78,6 +86,7 @@ MovieStar
         templateUrl: 'app/views/profile.tpl.html',
       })
       .when('/cart', {
+        controller: 'CartCtrl',
         templateUrl: 'app/views/cart.tpl.html',
       })
       .otherwise({
@@ -85,6 +94,7 @@ MovieStar
       });
   })
   .controller('MovieDetailCtrl', MovieDetailCtrl)
+  .controller('CartCtrl', CartCtrl)
   .controller('UserCtrl', UserCtrl)
   .controller('HeaderController', HeaderController);
 MovieStar.run(['$rootScope', '$location', function ($rootScope, $location) {
