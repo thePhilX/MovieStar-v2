@@ -22,7 +22,7 @@ var files = {
   ],
   frontendSources: [
     'frontend/**/*.js',
-    '!frontend/**/*.spec.js'
+    '!frontend/**/*.spec.js',
   ],
   frontendTemplates: [
     'frontend/**/*.tpl.html',
