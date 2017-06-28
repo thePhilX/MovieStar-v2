@@ -6,28 +6,6 @@ function HeaderController($scope, $location) {
   };
 }
 
-function LoginCtrl($scope, $http, $rootScope) {
-  if (!$rootScope.isAuth) $rootScope.isAuth = false;
-  $scope.login = function (username, password) {
-    $http.post('/api/auth', { email: username, password: password })
-    .then(
-      function (res) {
-        console.log(res);
-        var token = res.data.token;
-        $rootScope.isAuth = true;
-        $http.defaults.headers.common.Authorization = res.data.token;
-      },
-      function (res) {
-        console.log(res);
-      }
-    );
-  };
-  $scope.logout = function () {
-    $rootScope.isAuth = false;
-    $http.defaults.headers.common.Authorization = undefined;
-  };
-}
-
 function ShopCtrl($scope, $http) {
   $http.get('/api/movies')
     .then(
@@ -58,20 +36,21 @@ var MovieStar = angular.module('MovieStar', [
   'ngRoute',
   'register',
   'registerService',
+  'login',
+  'movieClient',
 ]);
+
 MovieStar
   .config(function ($routeProvider, $locationProvider) {
     $locationProvider.hashPrefix('');
     $routeProvider
       .when('/', {
-        controller: 'LoginCtrl',
         templateUrl: 'app/views/login.tpl.html',
       })
       .when('/register', {
         templateUrl: 'app/views/register.tpl.html',
       })
       .when('/movies', {
-        controller: 'MoviesCtrl',
         templateUrl: 'app/views/shop.tpl.html',
       })
       .when('/user', {
@@ -85,10 +64,9 @@ MovieStar
         redirectTo: '/',
       });
   })
-  .controller('LoginCtrl', LoginCtrl)
   .controller('UserCtrl', UserCtrl)
-  .controller('MoviesCtrl', ShopCtrl)
   .controller('HeaderController', HeaderController);
+
 MovieStar.run(['$rootScope', '$location', function ($rootScope, $location) {
   $rootScope.$on('$routeChangeStart', function (event) {
     if (!$rootScope.isAuth && !($location.path() === '/' || $location.path() === '/register' || $location.path() === '')) {

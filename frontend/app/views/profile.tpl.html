@@ -2,7 +2,7 @@
   <div class="col-lg-8 col-md-6 col-sm-8 col-xs-12 col-lg-offset-4 col-md-offset-6 col-sm-offset-4 jumbotron">
       <div class="card hovercard">
           <div class="useravatar">
-              <img alt="" src="https://dummyimage.com/250x200/591909/000000&text=Profile+Pic">
+              <img alt="" src="../images/alan.jpg">
           </div>
           <div class="card-info"> <span class="card-title">{{user.firstName}} {{user.surName}}</span>
           </div>
@@ -14,8 +14,8 @@
               </button>
           </div>
           <div class="btn-group" role="group">
-              <button type="button" id="collectionBtn" class="btn btn-default" href="#collectionTab" data-toggle="tab"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>
-                  <div class="hidden-xs">Collection</div>
+              <button type="button" id="bookingsBtn" class="btn btn-default" href="#bookingsTab" data-toggle="tab"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                  <div class="hidden-xs">Bookings</div>
               </button>
           </div>
           <div class="btn-group" role="group">
@@ -36,15 +36,20 @@
                 <button class="form-control" type="button" name="submitBtn" ng-click="updateUser()">Submit</button>
             </div>
           </div>
-          <div class="tab-pane fade in" id="collectionTab">
-            <h3>Your Movies</h3>
-            <div id="collection" ng repeat="movie in user.movies">
-                <div><strong>{{movie.title}}</strong>{{movie.genre}}{{movie.length}}</div>
-                <hr>
-                <div>
-                    <b>Total Movies:</b> {{movies.length}}
+          <div class="tab-pane fade in" id="bookingsTab">
+            <h3>Recent Orders</h3>
+            <uib-accordion close-others="true">
+                <div uib-accordion-group ng-repeat="booking in bookings" class="panel-default" heading="Order from {{ booking.timestamp | date}}">
+                    <div ng-repeat="movies in booking.movies">
+                        <div>Movie: {{movie.name}}</div>
+                        <div>{{movie.price | currency : "&euro;"}}</div>
+                        <hr />
+                    </div>
+                    <div>
+                        <b>Total:</b> {{booking.totalPrice | currency : "&euro;"}}
+                    </div>
                 </div>
-            </div>
+            </uib-accordion>
           </div>
           <div class="tab-pane fade in" id="deleteAccountTab">
             <h3>Delete Account</h3>
