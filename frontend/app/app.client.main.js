@@ -6,18 +6,6 @@ function HeaderController($scope, $location) {
   };
 }
 
-function ShopCtrl($scope, $http) {
-  $http.get('/api/movies')
-    .then(
-      function (res) {
-        $scope.movies = res.data;
-      },
-      function (res) {
-        console.log(res);
-      }
-    );
-}
-
 function UserCtrl($scope, $http) {
   $http.get('/api/users')
     .then(
