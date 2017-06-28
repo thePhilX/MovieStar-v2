@@ -1,0 +1,48 @@
+<div class="container">
+	<div class="row">
+    <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#addMovieModal">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </button>
+    <div id="addMovieModal" class="modal fade">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Add a Movie</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group float-label-control">
+                            <label for="">Title</label>
+                            <input type="text" class="form-control" placeholder="Title" ng-model="movie.title" required>
+                        </div>
+                        <div class="form-group float-label-control">
+                            <label for="">Regisseur</label>
+                            <input type="text" class="form-control" placeholder="Regisseur" ng-model="movie.regisseur" required>
+                        </div>
+                        <div class="form-group float-label-control">
+                            <label for="">Year</label>
+                            <input type="text" class="form-control" placeholder="Year of Release" ng-model="movie.year" required>
+                        </div>
+                        <div class="form-group float-label-control">
+                            <label for="">Duration</label>
+                            <input type="text" class="form-control" placeholder="Duration" ng-model="movie.duration" required>
+                        </div>
+                        <div class="form-group float-label-control">
+                            <label for="">Price</label>
+                            <input type="text" class="form-control" placeholder="Price" ng-model="movie.price" required>
+                        </div>
+                        <div class="form-group float-label-control">
+                            <label for="">Description</label>
+                            <textarea class="form-control" placeholder="Add a Description" rows="3" ng-model="movie.description" required></textarea>
+                        </div>
+                        <div class="btn-group btn-group-justified">
+                            <div class="btn-group"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
+                            <div class="btn-group"><button type="button" class="btn btn-success" ng-click="addMovie()">Add to Database</button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+	</div>
+</div>

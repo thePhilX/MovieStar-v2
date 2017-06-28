@@ -18,7 +18,7 @@ var BookingSchema = new Schema({
       required: true
     },
     totalPrice: { type: Number, required: true },
-    timestamp: { type: Date, default: Date.now() }
+    timestamp: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('Booking', BookingSchema);
