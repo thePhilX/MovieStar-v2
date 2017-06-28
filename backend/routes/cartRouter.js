@@ -1,6 +1,6 @@
 const express = require('express');
 const cartRoutesApi = express();
-const bookingAPI = require('../modules/cartAPI');
+const cartAPI = require('../modules/cartAPI');
 
 cartRoutesApi.route('/cart')
     .get(cartAPI.getAllCarts)
