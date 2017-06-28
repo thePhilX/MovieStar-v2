@@ -91,7 +91,7 @@ MovieStar
   .controller('HeaderController', HeaderController);
 MovieStar.run(['$rootScope', '$location', function ($rootScope, $location) {
   $rootScope.$on('$routeChangeStart', function (event) {
-    if (!$rootScope.isAuth && !($location.path() === '/' || $location.path() === '/register')) {
+    if (!$rootScope.isAuth && !($location.path() === '/' || $location.path() === '/register' || $location.path() === '')) {
       alert('Please login to see this page.');
       event.preventDefault();
       $location.path('/');
