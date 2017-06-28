@@ -1,25 +1,27 @@
 <div class="container">
-    <div class="row search-row">
-        <input class="form-control" id="search-article" placeholder="Search for anything..." ng-model="searchFilter" type="text" />
-    </div>
-    <br />
-    <div id="products" class="row list-group">
-        <div ng-repeat="movie in movies | filter: searchFilter" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-card">
-          <div class="thumbnail">
-              <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-                <img src="http://via.placeholder.com/350x250" class="group list-group-image" alt="">
-                <div class="caption">
-                  <div class="blur"></div>
-                  <div class="caption-text">
-                      <h3 style="border-bottom:2px solid white; padding:10px;">{{movie.title}}</h3>
-                      <button class="btn btn-info btn-lg" type="button" ng-click="redirectToMovieDetail()">
-                          <span class="glyphicon glyphicon-info-sign" aria-hidden="true">
-                          <p> Show Details </p>
-                      </button>
-                  </div>
+    <div class="col-lg-8 col-md-6 col-sm-8 col-xs-12 col-lg-offset-4 col-md-offset-6 col-sm-offset-4 jumbotron">
+        <div class="row search-row">
+            <input class="form-control" id="search-article" placeholder="Search for anything..." ng-model="searchFilter" type="text" />
+        </div>
+        <br />
+        <div id="products" class="row list-group">
+            <div ng-repeat="movie in movies | filter: searchFilter" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-card">
+              <div class="thumbnail">
+                  <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                    <img src="http://via.placeholder.com/350x250" class="group list-group-image" alt="">
+                    <div class="caption">
+                      <div class="blur"></div>
+                      <div class="caption-text">
+                          <h3 style="border-bottom:2px solid white; padding:10px;">{{movie.title}}</h3>
+                          <button class="btn btn-info btn-lg" type="button" ng-click="redirectToMovieDetail()">
+                              <span class="glyphicon glyphicon-info-sign" aria-hidden="true">
+                              <p> Show Details </p>
+                          </button>
+                      </div>
+                    </div>
                 </div>
+              </div>
             </div>
-          </div>
         </div>
     </div>
 </div>
