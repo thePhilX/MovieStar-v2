@@ -31,6 +31,20 @@ function UserCtrl($scope, $http) {
         console.log(res);
       }
     );
+  $scope.updateUser = function () {
+    var user = $scope.newUser;
+    /* eslint-disable no-underscore-dangle */
+    $http.put('/api/users/' + user._id, user)
+      .then(
+        function (res) {
+          console.log(res);
+        },
+        function (res) {
+          console.log(res);
+        }
+      );
+    /* eslint-enable no-underscore-dangle */
+  };
 }
 
 function MovieDetailCtrl($scope, $http, $routeParams, $location) {
