@@ -1,6 +1,6 @@
 var movieClient = angular.module('movieClient', []);
 
-movieClient.controller('movieCtrl', function ($scope, $http) {
+movieClient.controller('movieCtrl', function ($scope, $http, $location) {
   $http.get('/api/movies')
     .then(
       function (res) {
