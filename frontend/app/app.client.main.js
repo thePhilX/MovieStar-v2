@@ -33,7 +33,7 @@ function UserCtrl($scope, $http) {
     );
 }
 
-function MovieDetailCtrl($scope, $http, $routeParams) {
+function MovieDetailCtrl($scope, $http, $routeParams, $location) {
   $http.get('/api/movies/' + $routeParams.movieID)
     .then(
       function (res) {
@@ -43,6 +43,9 @@ function MovieDetailCtrl($scope, $http, $routeParams) {
         console.log('Error' + res);
       }
     );
+  $scope.redirectToShop = function () {
+    $location.path('/movies/');
+  };
 }
 var MovieStar = angular.module('MovieStar', [
   'MovieStar.templates',
@@ -52,7 +55,6 @@ var MovieStar = angular.module('MovieStar', [
   'login',
   'movieClient',
 ]);
-
 MovieStar
   .config(function ($routeProvider, $locationProvider) {
     $locationProvider.hashPrefix('');
@@ -84,7 +86,6 @@ MovieStar
   .controller('MovieDetailCtrl', MovieDetailCtrl)
   .controller('UserCtrl', UserCtrl)
   .controller('HeaderController', HeaderController);
-
 MovieStar.run(['$rootScope', '$location', function ($rootScope, $location) {
   $rootScope.$on('$routeChangeStart', function (event) {
     if (!$rootScope.isAuth && !($location.path() === '/' || $location.path() === '/register' || $location.path() === '')) {
