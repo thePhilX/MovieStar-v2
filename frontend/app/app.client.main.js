@@ -19,6 +19,18 @@ function UserCtrl($scope, $http) {
       }
     );
 }
+
+function MovieDetailCtrl($scope, $http, $routeParams) {
+  $http.get('/api/movies/' + $routeParams.movieID)
+    .then(
+      function (res) {
+        $scope.movie = res.data;
+      },
+      function (res) {
+        console.log('Error' + res);
+      }
+    );
+}
 var MovieStar = angular.module('MovieStar', [
   'MovieStar.templates',
   'ngRoute',
@@ -41,6 +53,10 @@ MovieStar
       .when('/movies', {
         templateUrl: 'app/views/shop.tpl.html',
       })
+      .when('/movie/:movieID', {
+        controller: 'MovieDetailCtrl',
+        templateUrl: 'app/views/movieDetail.tpl.html',
+      })
       .when('/user', {
         controller: 'UserCtrl',
         templateUrl: 'app/views/profile.tpl.html',
@@ -52,6 +68,7 @@ MovieStar
         redirectTo: '/',
       });
   })
+  .controller('MovieDetailCtrl', MovieDetailCtrl)
   .controller('UserCtrl', UserCtrl)
   .controller('HeaderController', HeaderController);
 

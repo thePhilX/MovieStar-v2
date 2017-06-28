@@ -11,6 +11,9 @@ movieClient.controller('movieCtrl', function ($scope, $http, $location) {
         console.log(res);
       }
     );
+  $scope.go = function (movieID) {
+    $location.path('/movie/' + movieID);
+  };
 });
 
 movieClient.controller('movieDelCtrl', function ($scope, $http) {
