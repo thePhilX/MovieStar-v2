@@ -6,11 +6,12 @@ function HeaderController($scope, $location) {
   };
 }
 
-function ShopCtrl($scope, $http) {
+function ShopCtrl($scope, $http, $state) {
   $http.get('/api/movies')
     .then(
       function (res) {
         $scope.movies = res.data;
+        console.log($scope.movies);
       },
       function (res) {
         console.log(res);
@@ -28,6 +29,18 @@ function UserCtrl($scope, $http) {
       },
       function (res) {
         console.log(res);
+      }
+    );
+}
+
+function MovieDetailCtrl($scope, $http, $routeParams) {
+  $http.get('/api/movies/' + $routeParams.movieID)
+    .then(
+      function (res) {
+        $scope.movie = res.data;
+      },
+      function (res) {
+        console.log('Error' + res);
       }
     );
 }
@@ -53,6 +66,10 @@ MovieStar
       .when('/movies', {
         templateUrl: 'app/views/shop.tpl.html',
       })
+      .when('/movie/:movieID', {
+        controller: 'MovieDetailCtrl',
+        templateUrl: 'app/views/movieDetail.tpl.html',
+      })
       .when('/user', {
         controller: 'UserCtrl',
         templateUrl: 'app/views/profile.tpl.html',
@@ -64,6 +81,7 @@ MovieStar
         redirectTo: '/',
       });
   })
+  .controller('MovieDetailCtrl', MovieDetailCtrl)
   .controller('UserCtrl', UserCtrl)
   .controller('HeaderController', HeaderController);
 
