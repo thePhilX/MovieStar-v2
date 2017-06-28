@@ -4,11 +4,11 @@ var mongoose = require('mongoose'),
 var MovieSchema = new Schema({
     title: { type: String, required: true },
     description: {type: String, required: true},
-    year: { type: Number, required: true },
+    year: { type: Number, required: true, validate: Number.isInteger },
     director: { type: String, required: true },
     genre: { type: String, required: true },
     duration: {type: Number, required: true},
     price: { type: Number, required: true },
-    date_added: { type: Date, required: false, default: Date.now() }
+    date_added: { type: Date, required: false, default: Date.now }
 });
 module.exports = mongoose.model('Movie', MovieSchema);
