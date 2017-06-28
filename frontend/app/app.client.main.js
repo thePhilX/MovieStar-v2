@@ -56,6 +56,8 @@ function UserCtrl($scope, $http) {
 var MovieStar = angular.module('MovieStar', [
   'MovieStar.templates',
   'ngRoute',
+  'register',
+  'registerService',
 ]);
 MovieStar
   .config(function ($routeProvider, $locationProvider) {
