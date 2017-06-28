@@ -51,15 +51,15 @@
     <br></br>
     <hr>
     <div id="products" class="row list-group">
+      <!--<div class="row">-->
         <div ng-repeat="movie in movies | filter: searchFilter" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 product-card">
-            <div class="thumbnail">
-                <div class="row">
+                <div class="thumbnail">
                       <div class="cuadro_intro_hover " style="background-color:#cccccc;">
                           <img src="http://via.placeholder.com/350x250" class="group list-group-image" alt="">
                         <div class="caption">
                           <div class="blur"></div>
                           <div class="caption-text">
-                            <h3 style="border-bottom:2px solid white; padding:10px;">{{movie.title}</h3>
+                            <h3 style="border-bottom:2px solid white; padding:10px;">{{movie.title}}</h3>
                             <button class="btn btn-warning btn-lg" data-toggle="modal" data-target="#editMovieModal">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true">
                             </button>
@@ -71,6 +71,17 @@
                             </button>
                           </div>
                         </div>
+                      </div>
+                      <div class="caption">
+                          <p class="group inner list-group-item-text">
+                              {{movie.genre}}
+                          </p>
+                          <div>
+                              <p class="group inner list-group-item-text">
+                                <strong>{{movie.price | currency : "&euro;"}}</strong>
+                              </p>
+                              <button class="btn btn-success btn-cart-mobile" type="button" ng-click="addToCart(movie)"><span class="glyphicon glyphicon-shopping-cart"></span> Add to cart</button>
+                          </div>
                       </div>
                       <div id="editMovieModal" class="modal fade">
                           <div class="modal-dialog modal-sm">
@@ -131,18 +142,8 @@
                           </div>
                       </div>
                 </div>
-                <div class="caption">
-                    <p class="group inner list-group-item-text">
-                        {{movie.genre}}
-                    </p>
-                    <div>
-                        <p class="group inner list-group-item-text">
-                          <strong>{{movie.price | currency : "&euro;"}}</strong>
-                        </p>
-                        <button class="btn btn-success btn-cart-mobile" type="button" ng-click="addToCart(movie)"><span class="glyphicon glyphicon-shopping-cart"></span> Add to cart</button>
-                    </div>
-                </div>
+
             </div>
-        </div>
+        <!--</div>-->
     </div>
 </div>
