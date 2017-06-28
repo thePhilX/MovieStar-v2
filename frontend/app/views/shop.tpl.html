@@ -8,45 +8,7 @@
           </button>
         </div>
         <div id="addMovieModal" class="modal fade">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4>Add a Movie</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form role="form">
-                            <div class="form-group float-label-control">
-                                <label for="">Title</label>
-                                <input type="text" class="form-control" placeholder="Title" ng-model="movie.title" required>
-                            </div>
-                            <div class="form-group float-label-control">
-                                <label for="">Director</label>
-                                <input type="text" class="form-control" placeholder="Director" ng-model="movie.director" required>
-                            </div>
-                            <div class="form-group float-label-control">
-                                <label for="">Year</label>
-                                <input type="text" class="form-control" placeholder="Year of Release" ng-model="movie.year" required>
-                            </div>
-                            <div class="form-group float-label-control">
-                                <label for="">Duration</label>
-                                <input type="text" class="form-control" placeholder="Duration" ng-model="movie.duration" required>
-                            </div>
-                            <div class="form-group float-label-control">
-                                <label for="">Price</label>
-                                <input type="text" class="form-control" placeholder="Price" ng-model="movie.price" required>
-                            </div>
-                            <div class="form-group float-label-control">
-                                <label for="">Description</label>
-                                <textarea class="form-control" placeholder="Add a Description" rows="3" ng-model="movie.description" required></textarea>
-                            </div>
-                            <div class="btn-group btn-group-justified">
-                                <div class="btn-group"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
-                                <div class="btn-group"><button type="button" class="btn btn-success" ng-click="addMovie()">Add to Database</button></div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            <div data-ng-include="'app/views/addMovieModal.tpl.html'"></div>
         </div>
     </div>
     <br></br>
@@ -73,77 +35,24 @@
                           </div>
                         </div>
                       </div>
-                      <div class="caption">
-                          <p class="group inner list-group-item-text">
-                              {{movie.genre}}
-                          </p>
-                          <div>
-                              <p class="group inner list-group-item-text">
-                                <strong>{{movie.price | currency : "&euro;"}}</strong>
-                              </p>
-                              <button class="btn btn-success btn-cart-mobile" type="button" ng-click="addToCart(movie)"><span class="glyphicon glyphicon-shopping-cart"></span> Add to cart</button>
-                          </div>
-                      </div>
-                      <div id="editMovieModal" class="modal fade">
-                          <div class="modal-dialog modal-sm">
-                              <div class="modal-content">
-                                  <div class="modal-header">
-                                      <h4>Edit {{movie.title}}</h4>
-                                  </div>
-                                  <div class="modal-body">
-                                      <form role="form">
-                                          <div class="form-group float-label-control">
-                                              <label for="">Director</label>
-                                              <input type="text" class="form-control" placeholder="{{movie.director}}" ng-model="newMovie.director" required>
-                                          </div>
-                                          <div class="form-group float-label-control">
-                                              <label for="">Year</label>
-                                              <input type="text" class="form-control" placeholder="{{movie.year}}" ng-model="newMovie.year" required>
-                                          </div>
-                                          <div class="form-group float-label-control">
-                                              <label for="">Duration</label>
-                                              <input type="text" class="form-control" placeholder="{{movie.duration}}" ng-model="newMovie.duration" required>
-                                          </div>
-                                          <div class="form-group float-label-control">
-                                              <label for="">Price</label>
-                                              <input type="text" class="form-control" placeholder="{{movie.price}}" ng-model="newMovie.price" required>
-                                          </div>
-                                          <div class="form-group float-label-control">
-                                              <label for="">Description</label>
-                                              <textarea class="form-control" placeholder="{{movie.description}}" rows="3" ng-model="newMovie.description" required></textarea>
-                                          </div>
-                                          <div class="btn-group btn-group-justified">
-                                              <div class="btn-group"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
-                                              <div class="btn-group"><button type="button" class="btn btn-success" ng-click="editMovie()">Apply Changes</button></div>
-                                          </div>
-                                      </form>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div id="deleteMovieModal" class="modal fade">
-                          <div class="modal-dialog modal-sm">
-                              <div class="modal-content">
-                                  <div class="modal-header">
-                                      <h4>Delete {{movie.title}}</h4>
-                                  </div>
-                                  <div class="modal-body">
-                                      <form role="form">
-                                          <div class="form-group float-label-control">
-                                              <label for="">Click the button to delete the movie.</label>
-                                              <label for="">Care, this can't be revoked.</label>
-                                          </div>
-                                          <div class="btn-group btn-group-justified">
-                                              <div class="btn-group"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
-                                              <div class="btn-group"><button type="button" class="btn btn-danger" ng-click="deleteMovie()">Delete</button></div>
-                                          </div>
-                                      </form>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
+                    <div class="caption">
+                        <p class="group inner list-group-item-text">
+                            {{movie.genre}}
+                        </p>
+                        <div>
+                            <p class="group inner list-group-item-text">
+                              <strong>{{movie.price | currency : "&euro;"}}</strong>
+                            </p>
+                            <button class="btn btn-success btn-cart-mobile" type="button" ng-click="addToCart(movie)"><span class="glyphicon glyphicon-shopping-cart"></span> Add to cart</button>
+                        </div>
+                    </div>
+                    <div id="editMovieModal" class="modal fade">
+                        <div data-ng-include="'app/views/editMovieModal.tpl.html'"></div>
+                    </div>
+                    <div id="deleteMovieModal" class="modal fade">
+                        <div data-ng-include="'app/views/deleteMovieModal.tpl.html'"></div>
+                    </div>
                 </div>
-
             </div>
         <!--</div>-->
     </div>
