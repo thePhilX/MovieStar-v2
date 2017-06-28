@@ -51,7 +51,6 @@ MovieStar
         templateUrl: 'app/views/register.tpl.html',
       })
       .when('/movies', {
-        controller: 'MoviesCtrl',
         templateUrl: 'app/views/shop.tpl.html',
       })
       .when('/user', {
@@ -66,7 +65,6 @@ MovieStar
       });
   })
   .controller('UserCtrl', UserCtrl)
-  .controller('MoviesCtrl', ShopCtrl)
   .controller('HeaderController', HeaderController);
 
 MovieStar.run(['$rootScope', '$location', function ($rootScope, $location) {
